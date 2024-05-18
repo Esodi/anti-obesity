@@ -1,6 +1,6 @@
 #!/bin/python3
-
 """ represent user class """
 
-class User():
+from models.Base_mode import Base_model
+class User(Base_model):
     pass
