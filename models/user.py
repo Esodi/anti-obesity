@@ -3,4 +3,7 @@
 
 from models.Base_mode import Base_model
 class User(Base_model):
-    pass
+    username = ""
+    email = ""
+    password = ""
+    age = ""
