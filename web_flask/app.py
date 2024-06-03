@@ -21,7 +21,6 @@ def index():
     users = User.query.all()
     return render_template("index.html", users=users)
 
-
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
