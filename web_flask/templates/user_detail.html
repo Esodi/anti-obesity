@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Details</title>
+</head>
+<body>
+    <h1>User Details</h1>
+    <p>Username: {{ user.username }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Age: {{ user.age }}</p>
+    <p>Password Hash: {{ user.password_hash }}</p>
+    <a href="/edit_user/{{ user.id }}">Edit User</a>
+    <form action="/delusers/{{ user.id }}" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Delete User">
+    </form>
+</body>
+</html>

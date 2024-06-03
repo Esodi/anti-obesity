@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit User</title>
+</head>
+<body>
+    <h1>Edit User</h1>
+    <form action="/users/{{ user.id }}" method="post">
+        <input type="hidden" name="_method" value="put">
+        
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" value="{{ user.username }}"><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{ user.email }}"><br><br>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" value="{{ user.age }}"><br><br>
+        
+        <label for="password_hash">Password:</label>
+        <input type="password" id="password_hash" name="password_hash" value="{{ user.password_hash }}"><br><br>
+        
+        <input type="submit" value="Update User">
+    </form>
+</body>
+</html>

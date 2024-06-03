@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Index</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+<body>
+    <button><a href="/new_user" method="get">New User</a></button>
+    <h1>User Index Page</h1>
+    <ul>
+        {% for user in users %}
+        <li>
+            <strong>Username:</strong> {{ user.username }}<br>
+            <strong>Email:</strong> {{ user.email }}<br>
+            <strong>Age:</strong> {{ user.age }}<br>
+            <button><a href="/users/{{ user.id }}">Edit User</a></button>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
