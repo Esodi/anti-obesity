@@ -8,7 +8,8 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from models.Base_mode import db, User, Dietplan, Exerciseplan, Progress, Review # type: ignore
 from models.user import user_bp # type: ignore
-from flask_migrate import Migrate
+from models.diet_plan import dietplan_bp # type: ignore
+from flask_migrate import Migrate # type: ignore
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://user:user@localhost/webappdb'
@@ -19,6 +20,7 @@ db.init_app(app)
 migrate = Migrate(app, db)
 
 app.register_blueprint(user_bp)
+app.register_blueprint(dietplan_bp, url_prefix='/')
 
 @app.route("/admin")
 def admin():

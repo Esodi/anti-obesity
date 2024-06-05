@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diet Plans</title>
+</head>
+<body>
+    <button><a href="/dietplans/new">Add Dietplan</a></button>
+    <h1>Diet Plans</h1>
+    <ul>
+        {% for dietplan in dietplans %}
+            <li><a href="{{ url_for('dietplan.view_dietplan', dietplan_id=dietplan.id) }}">{{ dietplan.name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

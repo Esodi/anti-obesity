@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Diet Plan</title>
+</head>
+<body>
+    <h1>Edit Diet Plan</h1>
+    <form action="{{ url_for('dietplan.edit_dietplan', dietplan_id=dietplan.id) }}" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ dietplan.name }}" required><br>
+        
+        <label for="description">Description:</label>
+        <textarea id="description" name="description">{{ dietplan.description }}</textarea><br>
+        
+        <label for="calories_per_day">Calories per Day:</label>
+        <input type="number" id="calories_per_day" name="calories_per_day" value="{{ dietplan.calories_per_day }}" required><br>
+        
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>

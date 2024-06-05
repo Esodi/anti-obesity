@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ dietplan.name }}</title>
+</head>
+<body>
+    <h1>{{ dietplan.name }}</h1>
+    <p><strong>Description:</strong> {{ dietplan.description }}</p>
+    <p><strong>Calories per Day:</strong> {{ dietplan.calories_per_day }}</p>
+    <p><strong>Created At:</strong> {{ dietplan.created_at }}</p>
+    <p><strong>Updated At:</strong> {{ dietplan.updated_at }}</p>
+    <a href="{{ url_for('dietplan.edit_dietplan', dietplan_id=dietplan.id) }}">Edit</a>
+</body>
+</html>

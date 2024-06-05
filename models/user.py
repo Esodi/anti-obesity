@@ -1,7 +1,7 @@
 #!/bin/python3
 """ represent user class """
 
-from flask import Blueprint, request, render_template, redirect, url_for, flash # type: ignore
+from flask import Blueprint, request, render_template, redirect, url_for, flash, session # type: ignore
 from models.Base_mode import db, User # type: ignore
 
 user_bp = Blueprint('user', __name__)
@@ -78,12 +78,17 @@ def login():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
-        
         user = User.query.filter_by(email=email).first()
         if user and user.check_password(password):
+            session['user_id'] = user.id
             flash('Login successful')
             return redirect(url_for('user.get_user', user_id=user.id))
         else:
             flash('Invalid email or password')
-    
     return render_template('login.html')
+
+@user_bp.route('/logout')
+def logout():
+    session.pop('user_id', None)
+    flash('Logged out successfully')
+    return redirect(url_for('user.login'))
