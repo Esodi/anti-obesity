@@ -1,23 +1,30 @@
 #!/bin/python3
 """ represent user class """
 
-# user_routes.py
-from flask import Blueprint, request, render_template, redirect # type: ignore
+from flask import Blueprint, request, render_template, redirect, url_for, flash # type: ignore
 from models.Base_mode import db, User # type: ignore
 
 user_bp = Blueprint('user', __name__)
 
-@user_bp.route('/users', methods=['POST'])
-def create_user():
-    username = request.form['username']
-    email = request.form['email']
-    age = request.form['age']
-    password_hash = request.form['password_hash']
 
-    new_user = User(username=username, email=email, age=age, password_hash=password_hash)
-    db.session.add(new_user)
-    db.session.commit()
-    return redirect('/')
+@user_bp.route('/users/new', methods=['GET', 'POST'])
+def create_user():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        age = request.form['age']
+        password = request.form['password']
+        
+        new_user = User(username=username, email=email, age=age)
+        new_user.set_password(password)
+        db.session.add(new_user)
+        db.session.commit()
+        
+        flash('User created successfully')
+        return redirect(url_for('user.create_user'))
+    
+    return render_template('create_user.html')
+
 
 @user_bp.route('/users/<int:user_id>', methods=['GET'])
 def get_user(user_id):
@@ -27,19 +34,27 @@ def get_user(user_id):
     else:
         return "User not found", 404
 
-@user_bp.route('/users/<int:user_id>', methods=['POST'])
+
+@user_bp.route('/users/<int:user_id>/edit', methods=['GET', 'POST'])
 def update_user(user_id):
     user = User.query.get(user_id)
-    if user:
+    if not user:
+        flash('User not found')
+        return redirect(url_for('user.create_user'))
+    
+    if request.method == 'POST':
         user.username = request.form['username']
         user.email = request.form['email']
         user.age = request.form['age']
-        user.password_hash = request.form['password_hash']
+        if 'password' in request.form and request.form['password']:
+            user.set_password(request.form['password'])
         
         db.session.commit()
-        return redirect(f'/users/{user_id}')
-    else:
-        return "User not found", 404
+        flash('User updated successfully')
+        return redirect(url_for('user.get_user', user_id=user_id))
+    
+    return render_template('edit_user.html', user=user)
+
 
 @user_bp.route('/delusers/<int:user_id>', methods=['POST'])
 def delete_user(user_id):
@@ -51,11 +66,24 @@ def delete_user(user_id):
     else:
         return "User not found", 404
 
-@user_bp.route('/new_user', methods=['GET'])
-def new_user():
-    return render_template('user.html')
 
 @user_bp.route('/edit_user/<int:user_id>', methods=['GET'])
 def edit_user(user_id):
     user = User.query.get(user_id)
     return render_template('edit_user.html', user=user)
+
+
+@user_bp.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        
+        user = User.query.filter_by(email=email).first()
+        if user and user.check_password(password):
+            flash('Login successful')
+            return redirect(url_for('user.get_user', user_id=user.id))
+        else:
+            flash('Invalid email or password')
+    
+    return render_template('login.html')

@@ -3,6 +3,7 @@
 Base model for anti-Obesity web app
 """
 
+from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -13,13 +14,18 @@ class User(db.Model):
     username = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     age = db.Column(db.Integer, nullable=False)
-    password_hash = db.Column(db.String(128), nullable=False)
+    password_hash = db.Column(db.String(256), nullable=False)
 
     dietplans = db.relationship('Dietplan', backref='user', lazy=True)
     exerciseplans = db.relationship('Exerciseplan', backref='user', lazy=True)
     progress = db.relationship('Progress', backref='user', lazy=True)
     reviews = db.relationship('Review', backref='user', lazy=True)
 
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
 
 class Dietplan(db.Model):
     __tablename__ = 'dietplans'
