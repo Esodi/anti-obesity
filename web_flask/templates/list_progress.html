@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Progress Entries</title>
+</head>
+<body>
+    <button><a href="/progress/new">New Progress</a></button>
+    <h1>List Progress Entries</h1>
+    <ul>
+        {% for progress in progresses %}
+        <li><a href="{{ url_for('progress.view_progress', progress_id=progress.id) }}">Entry {{ progress.id }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Review</title>
+</head>
+<body>
+    <h1>Update Review</h1>
+    <form action="{{ url_for('reviews.update_review', review_id=review.id) }}" method="post">
+        <label for="rating">Rating:</label>
+        <input type="number" name="rating" id="rating" min="1" max="5" value="{{ review.rating }}" required>
+        <br>
+        <label for="comment">Comment:</label>
+        <textarea name="comment" id="comment">{{ review.comment }}</textarea>
+        <br>
+        <button type="submit">Update</button>
+    </form>
+    <a href="{{ url_for('reviews.get_reviews') }}">Back to Reviews</a>
+</body>
+</html>

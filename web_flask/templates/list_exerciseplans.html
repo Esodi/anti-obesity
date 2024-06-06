@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Exercise Plans</title>
+</head>
+<body>
+    <button><a href="/exerciseplan/new">New Exercise</a></button>
+    <h1>List Exercise Plans</h1>
+    <ul>
+        {% for exerciseplan in exerciseplans %}
+        <li><a href="{{ url_for('exerciseplan.view_exerciseplan', exerciseplan_id=exerciseplan.id) }}">Plan: {{ exerciseplan.name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

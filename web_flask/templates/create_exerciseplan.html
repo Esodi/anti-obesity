@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Exercise Plan</title>
+</head>
+<body>
+    <h1>Create Exercise Plan</h1>
+    <form action="{{ url_for('exerciseplan.create_exerciseplan') }}" method="POST">
+        <label for="name">Exercise Name:</label>
+        <input type="text" id="name" name="name" required><br>
+        
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea><br>
+        
+        <label for="exercise_time">Exercise Time:</label>
+        <input type="time" id="exercise_time" name="exercise_time"><br>
+        
+        <button type="submit">Create</button>
+    </form>
+</body>
+</html>

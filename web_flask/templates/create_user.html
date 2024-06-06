@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/create_user.css') }}">
-    <title>Create User</title>
+    <title>Sign Up</title>
 </head>
 <body>
-    <h1>Create User</h1>
+    <h1>Fill the form to Sign Up</h1>
     <form action="{{ url_for('user.create_user') }}" method="POST">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br>
@@ -20,7 +20,7 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br>
         
-        <button type="submit">Create</button>
+        <button type="submit">Sign Up</button>
     </form>
     {% with messages = get_flashed_messages() %}
       {% if messages %}

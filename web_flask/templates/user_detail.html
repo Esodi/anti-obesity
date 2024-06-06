@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User Details</title>
+    <title>User Account</title>
 </head>
 <body>
-    <h1>User Details</h1>
+    <h1>User Account</h1>
     <p>Username: {{ user.username }}</p>
     <p>Email: {{ user.email }}</p>
     <p>Age: {{ user.age }}</p>
     
-    <a href="/edit_user/{{ user.id }}">Edit User</a>
+    <a href="/edit_user/{{ user.id }}">Edit Info</a>
     <form action="/delusers/{{ user.id }}" method="post">
         <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Delete User">
     </form>
     <button><a href="/dietplans">Open Dietplan</a></button>
+    <br>
+    <button><a href="/progress">Check Progress</a></button>
+    <br>
+    <button><a href="/exerciseplan">Your Exercises</a></button>
+    <br>
+    <button><a href="/reviews">Forum</a></button>
+    <br>
     <button><a href="/logout">Log Out</a></button>
 </body>
 </html>
