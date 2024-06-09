@@ -9,7 +9,7 @@ align-items: center;
 */
 box-sizing: border-box;
 font-family: "Poppins" arial;
-background: #F0F0F;
+background: #DADEDF;
 }
 * {
 box-sizing: border-box;
@@ -19,7 +19,7 @@ a {
 text-decoration: none;
 padding: 0;
 margin: 0;
-font-color: black;
+color: #fff;
 }
 
 #top_wrapper {
@@ -53,6 +53,7 @@ align-items: center;
 color: #fff;
 text-align: center;
 }
+
 #container header {
 display: flex;
 width: 100%;
@@ -60,9 +61,11 @@ position: absolute;
 top: 0;
 left: 0;
 }
+
 #logo img {
 height: 200px;
 }
+
 #navbar {
 display: flex;
 align-items: center;
@@ -73,6 +76,12 @@ padding-right: 50px;
 margin: 20px;
 font-size: 30px;
 color: white;
+}
+
+.join_now {
+background: #FC6A03;
+border-radius: 50px;
+padding: 5px 10px
 }
 
 /* content **/
@@ -92,8 +101,10 @@ margin-bottom: 0;
     font-size: 20px;
     margin-top: 0;
 }
+
 #btn {
 padding: 10px;
+color: #fff;
 }
 
 #btn button {
@@ -101,7 +112,6 @@ width: 200px;
 border: 2px solid #fff;
 border-radius: 50px;
 font-size: 30px;
-color: #fff;
 height: 60px;
 margin-right: 20px;
 background: none;
@@ -109,8 +119,9 @@ transition: 0.3s;
 }
 
 #btn button:hover {
-background: #fff;
-color: #000;
+background: #FC6A03;
+border: 2px solid #FC6A03;
+color: #fff;
 }
 
 
@@ -118,6 +129,7 @@ color: #000;
 /*** stories ***/
 .stories {
 margin: 10px;
+
 }
 #heading {
 text-align: center;
@@ -139,4 +151,9 @@ padding: 0 10px;
 text-align: justify;
 }
 
+footer {
+width: 100%;
+background: #FC6A03;
+height: 200px;
 
+}

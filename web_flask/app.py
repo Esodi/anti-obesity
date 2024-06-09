@@ -48,12 +48,17 @@ def admin():
 # Define the route for the landing page
 @app.route("/")
 def index():
-    return render_template("1-landing.html")
+    return render_template("landing.html")
 
 # Define the route for the explore page
 @app.route("/explore")
 def explore():
     return render_template("explore.html")
+
+# Define the route for the explore page
+@app.route("/dashboard")
+def dash_board():
+    return render_template("user_dashboard.html")
 
 # Define the route for the login page
 @app.route("/login")
@@ -80,7 +85,7 @@ def calculate():
             category = 'Obese'
 
         return render_template('result.html', bmi=bmi, category=category)
-    
+
     return render_template('bmi.html')
 
 if __name__ == "__main__":
