@@ -1,27 +1,126 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>User Account</title>
-</head>
-<body>
-    <h1>User Account</h1>
-    <p>Username: {{ user.username }}</p>
-    <p>Email: {{ user.email }}</p>
-    <p>Age: {{ user.age }}</p>
-    
-    <a href="/edit_user/{{ user.id }}">Edit Info</a>
-    <form action="/delusers/{{ user.id }}" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="Delete User">
-    </form>
-    <button><a href="/dietplans">Open Dietplan</a></button>
-    <br>
-    <button><a href="/progress">Check Progress</a></button>
-    <br>
-    <button><a href="/exerciseplan">Your Exercises</a></button>
-    <br>
-    <button><a href="/reviews">Forum</a></button>
-    <br>
-    <button><a href="/logout">Log Out</a></button>
-</body>
+  <head>
+    <link rel="stylesheet" href="/static/styles/user_detail.css" />
+    <link rel="icon" type="image/x-icon" href="/static/images/logo2.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Anti Obesity</title>
+  </head>
+  <body>
+     <!-- for header part -->
+     <header>
+      <div class="logosec">
+          <div class="logo">logo</div>
+      </div>
+      <div class="searchbar">
+          <input type="text" 
+                 placeholder="Search">
+          <div class="searchbtn">
+            <img src="/static/images/search_icon.png"
+                  class="icn srchicn">
+            </div>
+      </div>
+      <div class="message">
+          <div class="header">
+              <h1>User Dashboard</h1>
+             
+            </div>
+            <div>
+              <a
+              href="/edit_user/{{ user.id }}"
+              style="
+                background-color: #e67e22;
+                padding: 10px 20px;
+                border-radius: 5px;
+              "
+              >Edit Info</a
+            >
+            </div>
+      </div>
+  </header>
+
+  <div class="main-container">
+      <div class="navcontainer">
+          <nav class="nav">
+              <div class="nav-upper-options">
+                <div class="nav-option option1">
+                  <h3> Dashboard</h3>
+                </div>
+                <div class="nav-option">
+                        <a href="/dietplans">Diet Plans</a>
+                </div>
+
+                  <div class="nav-option">
+                      <a href="/dietplans">Diet Plans</a>
+                  </div>
+
+                  <div class="nav-option">
+                  <a href="/progress">Progress</a>
+
+                  </div>
+
+                  <div class="nav-option">
+                      <a href="/exerciseplan">Exercise Plan</a>
+                  </div>
+
+                  <div class="nav-option">
+                      <a href="/reviews">Forum</a>
+                  </div>
+
+                  <div class="nav-option">
+                      <a href="/logout">Log Out</a>
+                      
+                  </div>
+
+             
+
+              </div>  <!--  nav-upper-options -->
+          </nav>  <!-- nav -->
+      </div>
+      <div class="main">
+
+          <div class="account-container">
+              <div class="account-header">
+                  <h2>Account Information</h2>
+              </div>
+              <div class="account-body">
+                  <p>Username: {{ user.username }}</p>
+                  <p>Email: {{ user.email }}</p>
+                  <p>Age: {{ user.age }}</p>
+                </div>
+          </div>  <!-- account-container -->
+          <div class="account-container">
+              <div class="account-header">
+                  <h1>Actions</h1>
+              </div>
+              <div class="account-body">
+                  <div>
+                      <a href="/dietplans">Open Dietplan</a>
+                  </div>
+                  <div>
+                      <a href="/progress">Check Progress</a>
+                  </div>
+                  <div>
+                      <a href="/exerciseplan">Your Exercises</a>
+                  </div>
+                  <div>
+                      <a href="/reviews">Forum</a>
+                  </div>
+                  <form
+                    action="/delusers/{{ user.id }}"
+                    method="post"
+                    style="display: inline"
+                  >
+                    <input type="hidden" name="_method" value="delete" />
+                    <input type="submit" value="Delete User" />
+                  </form>
+                </div>
+            
+          </div>  <!-- account-container -->
+      </div>  <!-- main -->
+  </div>
+  </body>
 </html>
