@@ -210,16 +210,45 @@ margin-left: 15px;
 }
 
 .right_aside {
-margin: 10px;
+margin-top: 20px;
 display: flex;
 flex-direction: column;
 flex-grow: 1;
+text-align: center;
 
 }
 .ads {
-width: 100%;
-height: 70px;
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0,
-        0, 0.19);
-border-bottom: solid 1px lightgrey;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+text-align: center;
+max-width: 250px;
+
 }
+.price {
+color: grey;
+font-size: 22px;
+margin: 10px 0 10px;
+
+}
+
+.text {
+padding: 20px;
+}
+
+.ads button {
+cursor: pointer;
+width: 100%;
+border: none;
+padding: 5px;
+color: white;
+background: #000;
+outline: 0;
+margin-top: 5px;
+}
+
+.right_aside a {
+text-align: left;
+text-decoration: none;
+padding: 5px;
+
+}
+
