@@ -12,7 +12,9 @@ Portifolio Project
 - clone the repository
 - move to project directory
 - run the flask app   
-``` web_flask/app.py  ```
+```
+web_flask/app.py 
+```
 
 - Open your browser and type this   
 ```
