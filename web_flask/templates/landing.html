@@ -14,28 +14,31 @@
             </video>
             <div id="container">
                 <header>
-                    <div  style="flex-grow: " id="logo">
+                    <div  style="flex-grow: 2" id="logo">
                         <img src="/static/images/logo.png" alt="Logo"
                         class="logo">
                     </div><!end of logo>
                     <div style="flex-grow: 3" id="navbar">
-                        <a href="#">Explore</a>
-                        <a href="#">Login</a>
-                        <a href="#" class="join_now">Join Now</a>
-                    </div><!end of navbar>
-                </header>
+                        <a href="/">Home</a>
+                        <a href="explore">Explore</a>
+                        <a href="/login">Login</a>
+                        <a href="/users/new" class="join_now">Join Now</a>
+                    </div><!-- end of navbar -->
+                    </header>
                 <section id="content">
                     <div id="message">
                         <h1>Loose It All with Us</h1>
                         <p>We can make it possible, We do Hard Things</p>
                         <div id=btn>
-                            <button type="">Join Now</button>
+                            <a href="/users/new">
+                                <button type="">Join Now</button>
+                            </a>
                             <button type="">Check BMI</button>
                         </div><!end of btn>
                     <div><!end of message>
                 </section>
-            </div><! end of container>
-        </div><! end of top_wrapper>
+            </div><!-- end of container -->
+        </div><!-- end of top_wrapper -->
         <section class"stories">
             <h1 id="heading">Success Stories</h1>
             <div class="cards">
@@ -121,7 +124,14 @@
         </section>
 
         <footer>
-            <h1>Footer</h1>
+            <div>
+                Copyright © 2024 anti-obesity.: All rights reserved
+            </div>
+        <ul>
+            <li>User Policy</li>
+            <li>Terms</li>
+            <li>Privacy</li>
+        </ul>
         </footer>
 
     </body>
