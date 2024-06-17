@@ -15,8 +15,9 @@ Portifolio Project
 ``` web_flask/app.py  ```
 
 - Open your browser and type this   
-``` http://127.0.0.1:5000 ```
-
+```
+http://127.0.0.1:5000
+```
 
 ## Acknowledgements :pray:
 
