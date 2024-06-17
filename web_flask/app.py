@@ -10,13 +10,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from models.Base_mode import db, User, Dietplan, Exerciseplan, Progress, Review # type: ignore
 from models.user import user_bp # type: ignore
 from models.diet_plan import dietplan_bp # type: ignore
-# from models.progress import progress_bp # type: ignore
-# from models.exercise_plan import exerciseplan_bp # type: ignore
-# from models.auth import auth_bp
-# from models.forum import reviews_bp # type: ignore
 from make_celery import make_celery
 from tasks import send_exercise_reminders
-# from flask_migrate import Migrate # type: ignore
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://user:user@localhost/webappdb'
@@ -28,10 +23,6 @@ migrate = Migrate(app, db)
 
 app.register_blueprint(user_bp)
 app.register_blueprint(dietplan_bp, url_prefix='/')
-# app.register_blueprint(progress_bp, url_prefix='/')
-# app.register_blueprint(exerciseplan_bp, url_prefix='/')
-# app.register_blueprint(auth_bp, url_prefix='/')
-# app.register_blueprint(reviews_bp)
 
 app.config.from_object('config')
 celery = make_celery(app)
