@@ -28,4 +28,5 @@ All work contained in this project was completed as part of the curriculum for A
 # Authors :black_nib:
 
 **Ahmed Issa** [GitHub](https://github.com/Ahmed-Is3a) | [Twitter](https://twitter.com/ahmedissa0011)  
-
+**Method**
+**Mychael**
